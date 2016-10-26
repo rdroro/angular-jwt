@@ -77,7 +77,8 @@ angular.module('angular-jwt.authManager', [])
           var token = invokeToken(config.tokenGetter);
           if (!token || jwtHelper.isTokenExpired(token)) {
             config.unauthenticatedRedirector($location);
-            event.preventDefault();
+            // problem with route-ui '$state.go('...'). No redirection
+            // event.preventDefault();
           }
         }
       }
